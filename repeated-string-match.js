@@ -10,16 +10,17 @@ var repeatedStringMatch = function(a, b) {
     let repeatedString = a.repeat(repeats);
 
     if (repeatedString.includes(b)) {
-        return repeats
-    } else if (!repeatedString.includes(b)) {
-        repeatedString += a;
-        repeats++;
-        if (repeatedString.includes(b)) {
-            return repeats; 
-        }
-    } else {
-        return -1;
+        return repeats;
     }
+
+    repeatedString += a;
+
+    if (repeatedString.includes(b)) {
+        return repeats + 1;
+    }
+    // repeats++;
+
+    return -1;
 };
 
 console.log(repeatedStringMatch("abcd", "cdabcdab"));
